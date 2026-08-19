@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mila Rivas | Skin & Lash Boutique — Ritual de belleza en Cali</title>
+<meta name="description" content="Limpieza facial profunda, extensión de pestañas, diseño de cejas y cuidado corporal. Un ritual de belleza íntimo y exclusivo.">
+
+<!-- Google Fonts: display serif, script logo, light sans body -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Pinyon+Script&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          cream:      '#FBF6F1',
+          'cream-2':  '#F5EDE5',
+          blush:      '#EBD4CE',
+          rose:       '#C99A90',
+          gold: {
+            DEFAULT: '#B98A2E',
+            light:   '#F1D48A',
+            deep:    '#7E5A1C',
+          },
+          ink:        '#2C2724',
+          'ink-soft': '#5C5250',
+          graysoft:   '#BDB2AC',
+        },
+        fontFamily: {
+          display: ['"Cormorant Garamond"', 'serif'],
+          script:  ['"Pinyon Script"', 'cursive'],
+          body:    ['"Jost"', 'sans-serif'],
+        },
+        letterSpacing: {
+          widest2: '.35em',
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color:#FBF6F1; }
+
+  /* ---- Reveal on scroll ---- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.001ms !important; }
+  }
+
+  /* ---- Gold foil shimmer rotation on the emblem gradient ---- */
+  @keyframes foilTurn { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  .foil-rotor { transform-origin: 50% 50%; animation: foilTurn 7s linear infinite; }
+
+  /* ---- Watermark script letter used as ambient brand signature ---- */
+  .watermark-m {
+    font-family: 'Pinyon Script', cursive;
+    color: #B98A2E;
+    opacity: 0.06;
+    user-select: none;
+    pointer-events: none;
+    line-height: 1;
+  }
+
+  /* ---- Divider: thin gold rule with center ring, echoes the emblem ---- */
+  .ritual-divider { display:flex; align-items:center; gap:1rem; }
+  .ritual-divider::before, .ritual-divider::after { content:""; height:1px; flex:1; background: linear-gradient(90deg, transparent, #C9972E55, transparent); }
+
+  /* ---- Tabs underline ---- */
+  .tab-btn { position:relative; }
+  .tab-btn[data-active="true"] { color:#2C2724; }
+  .tab-btn[data-active="true"]::after {
+    content:""; position:absolute; left:0; right:0; bottom:-9px; height:1.5px;
+    background: linear-gradient(90deg,#7E5A1C,#F1D48A,#B98A2E);
+  }
+
+  /* ---- Service card ---- */
+  .svc-card { transition: box-shadow .4s ease, transform .4s ease, border-color .4s ease; }
+  .svc-card:hover { transform: translateY(-4px); border-color:#C9972E88; box-shadow: 0 18px 40px -22px rgba(122,90,28,0.35); }
+
+  .add-btn { transition: all .35s ease; }
+  .add-btn[data-added="true"] { background:#2C2724; color:#F5EDE5; border-color:#2C2724; }
+
+  /* ---- Floating cart ---- */
+  #cart-panel { transition: transform .5s cubic-bezier(.16,1,.3,1); }
+  #cart-fab { transition: transform .3s ease, box-shadow .3s ease; }
+  #cart-fab:hover { transform: translateY(-2px); }
+  #cart-backdrop { transition: opacity .4s ease; }
+
+  /* ---- Nav ---- */
+  #site-nav { transition: background-color .4s ease, box-shadow .4s ease, padding .4s ease; }
+
+  /* scrollbar-less horizontal tab scroller on mobile */
+  .no-scrollbar::-webkit-scrollbar { display:none; }
+  .no-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+
+  .gold-underline { background-image: linear-gradient(90deg,#7E5A1C,#F1D48A 45%,#B98A2E); }
+</style>
+</head>
+
+<body class="font-body text-ink antialiased selection:bg-gold-light/50">
+
+<!-- ============================================================ -->
+<!-- LOGO TEMPLATE NOTE: reused inline (header + footer) as SVG    -->
+<!-- ============================================================ -->
+
+<!-- ============================ HEADER ============================ -->
+<header id="site-nav" class="fixed top-0 inset-x-0 z-40 bg-transparent">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 flex items-center justify-between py-4">
+
+    <!-- Logo -->
+    <a href="#top" class="flex items-center gap-3 group">
+      <svg viewBox="0 0 100 100" class="w-11 h-11 sm:w-12 sm:h-12 shrink-0" aria-hidden="true">
+        <defs>
+          <linearGradient id="goldFoilHeader" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7E5A1C"/>
+            <stop offset="22%" stop-color="#F1D48A"/>
+            <stop offset="45%" stop-color="#FFF6DA"/>
+            <stop offset="68%" stop-color="#C9972E"/>
+            <stop offset="100%" stop-color="#7E5A1C"/>
+          </linearGradient>
+        </defs>
+        <g class="foil-rotor">
+          <circle cx="50" cy="50" r="47" fill="none" stroke="url(#goldFoilHeader)" stroke-width="1.4"/>
+        </g>
+        <circle cx="50" cy="50" r="41" fill="#FBF6F1"/>
+        <text x="50" y="70" text-anchor="middle" font-family="'Pinyon Script', cursive" font-size="60" fill="url(#goldFoilHeader)">M</text>
+      </svg>
+      <span class="flex flex-col leading-none">
+        <span class="font-display text-xl sm:text-2xl tracking-wide text-ink">Mila Rivas</span>
+        <span class="font-body text-[9px] sm:text-[10px] tracking-widest2 uppercase text-gold-deep mt-1">Skin &amp; Lash Boutique</span>
+      </span>
+    </a>
+
+    <!-- Desktop nav -->
+    <nav class="hidden md:flex items-center gap-9 font-body text-[13px] tracking-wide uppercase text-ink-soft">
+      <a href="#servicios" class="hover:text-gold-deep transition-colors">Servicios</a>
+      <a href="#nosotros" class="hover:text-gold-deep transition-colors">Nosotros</a>
+      <a href="#experiencia" class="hover:text-gold-deep transition-colors">Experiencia</a>
+      <a href="#contacto" class="hover:text-gold-deep transition-colors">Contacto</a>
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a href="#servicios" class="hidden sm:inline-flex items-center rounded-full border border-gold/50 px-5 py-2.5 text-[12px] tracking-wide uppercase text-gold-deep hover:bg-gold/10 transition-colors">
+        Ver servicios
+      </a>
+      <!-- mobile menu toggle -->
+      <button id="menu-toggle" aria-label="Abrir menú" class="md:hidden w-10 h-10 flex items-center justify-center rounded-full border border-graysoft/60">
+        <svg id="menu-icon" class="w-4 h-4 text-ink" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5M3.75 17.25h16.5"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="md:hidden hidden bg-cream/98 backdrop-blur border-t border-blush/60">
+    <nav class="flex flex-col px-6 py-5 gap-4 font-body text-sm uppercase tracking-wide text-ink-soft">
+      <a href="#servicios" class="menu-link py-1">Servicios</a>
+      <a href="#nosotros" class="menu-link py-1">Nosotros</a>
+      <a href="#experiencia" class="menu-link py-1">Experiencia</a>
+      <a href="#contacto" class="menu-link py-1">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section id="top" class="relative overflow-hidden pt-36 pb-24 sm:pt-44 sm:pb-32">
+  <!-- ambient blurred gradient blobs -->
+  <div class="pointer-events-none absolute -top-24 -right-24 w-[26rem] h-[26rem] rounded-full bg-blush/60 blur-3xl"></div>
+  <div class="pointer-events-none absolute top-40 -left-32 w-[22rem] h-[22rem] rounded-full bg-gold-light/40 blur-3xl"></div>
+  <!-- watermark script M -->
+  <div class="watermark-m absolute -bottom-16 right-0 text-[16rem] sm:text-[26rem] select-none">M</div>
+
+  <div class="relative max-w-4xl mx-auto px-6 text-center">
+    <p class="reveal is-visible font-body text-[11px] sm:text-xs tracking-widest2 uppercase text-gold-deep mb-6">Boutique de estética · Cali, Colombia</p>
+    <h1 class="reveal is-visible font-display italic text-4xl sm:text-6xl leading-[1.15] text-ink">
+      Rituales de belleza que<br class="hidden sm:block"> se sienten como seda dorada
+    </h1>
+    <p class="reveal is-visible mt-7 font-body text-ink-soft text-[15px] sm:text-base max-w-xl mx-auto leading-relaxed">
+      En Mila Rivas creemos que el cuidado de tu piel y tu mirada merece el mismo detalle que una joya:
+      precisión, calma y un toque de oro. Piel, cejas, pestañas y cuerpo — atendidos con manos expertas
+      en un espacio pensado para desconectar.
+    </p>
+
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a href="#servicios" class="w-full sm:w-auto text-center rounded-full px-8 py-3.5 font-body text-[12px] tracking-widest2 uppercase text-cream gold-underline shadow-lg shadow-gold/20 hover:opacity-90 transition-opacity">
+        Descubrir servicios
+      </a>
+      <button onclick="openWhatsAppDirect()" class="w-full sm:w-auto text-center rounded-full px-8 py-3.5 font-body text-[12px] tracking-widest2 uppercase text-gold-deep border border-gold/50 hover:bg-gold/10 transition-colors">
+        Agendar por WhatsApp
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ ETHOS STRIP ============================ -->
+<section class="relative bg-cream-2/70 border-y border-blush/50 py-16">
+  <div class="max-w-6xl mx-auto px-6 grid sm:grid-cols-3 gap-10 text-center">
+    <div class="reveal">
+      <svg class="w-7 h-7 mx-auto mb-4 text-gold-deep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21c-4.5-2.4-7.5-6-7.5-10.2C4.5 6.6 7.9 3.75 12 3.75s7.5 2.85 7.5 7.05C19.5 15 16.5 18.6 12 21z"/></svg>
+      <h3 class="font-display text-xl mb-2 text-ink">Ambiente íntimo</h3>
+      <p class="text-ink-soft text-[14px] leading-relaxed">Atención personalizada, sin prisas, en un espacio diseñado para que sueltes el día antes de entrar.</p>
+    </div>
+    <div class="reveal">
+      <svg class="w-7 h-7 mx-auto mb-4 text-gold-deep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l2.4 5.2L20 9l-4.4 3.6L17 18l-5-3-5 3 1.4-5.4L4 9l5.6-.8z"/></svg>
+      <h3 class="font-display text-xl mb-2 text-ink">Insumos premium</h3>
+      <p class="text-ink-soft text-[14px] leading-relaxed">Trabajamos con líneas profesionales certificadas para el cuidado de piel, cejas y pestañas.</p>
+    </div>
+    <div class="reveal">
+      <svg class="w-7 h-7 mx-auto mb-4 text-gold-deep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75l1.5 1.5L15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      <h3 class="font-display text-xl mb-2 text-ink">Manos expertas</h3>
+      <p class="text-ink-soft text-[14px] leading-relaxed">Formación continua en las técnicas más recientes de skincare y lash artistry.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SOBRE MARIA CAMILA ============================ -->
+<section id="nosotros" class="relative py-24 sm:py-28">
+  <div class="max-w-5xl mx-auto px-6 grid sm:grid-cols-[0.85fr_1.15fr] gap-12 items-center">
+    <div class="reveal relative mx-auto sm:mx-0">
+      <div class="w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-gradient-to-br from-blush via-cream to-gold-light/60 flex items-center justify-center shadow-inner">
+        <svg viewBox="0 0 100 100" class="w-32 h-32 sm:w-36 sm:h-36">
+          <defs>
+            <linearGradient id="goldFoilAbout" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7E5A1C"/>
+              <stop offset="30%" stop-color="#F1D48A"/>
+              <stop offset="55%" stop-color="#FFF6DA"/>
+              <stop offset="80%" stop-color="#C9972E"/>
+              <stop offset="100%" stop-color="#7E5A1C"/>
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="47" fill="none" stroke="url(#goldFoilAbout)" stroke-width="1.2"/>
+          <text x="50" y="70" text-anchor="middle" font-family="'Pinyon Script', cursive" font-size="60" fill="url(#goldFoilAbout)">M</text>
+        </svg>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="font-body text-[11px] tracking-widest2 uppercase text-gold-deep mb-4">La fundadora</p>
+      <h2 class="font-display italic text-3xl sm:text-4xl text-ink mb-5">María Camila Mosquera Rivas</h2>
+      <p class="text-ink-soft leading-relaxed text-[15px]">
+        Detrás de Mila Rivas hay una obsesión por el detalle: cada limpieza facial, cada línea de ceja y
+        cada pestaña se piensan como parte de un mismo ritual. María Camila fundó esta boutique para
+        ofrecer un lugar donde la técnica profesional y la calidez humana conviven — donde salir más
+        bella también significa salir en calma.
+      </p>
+      <div class="ritual-divider my-8 max-w-xs">
+        <span class="w-1.5 h-1.5 rounded-full bg-gold"></span>
+      </div>
+      <p class="text-ink-soft leading-relaxed text-[15px]">
+        Hoy, la boutique reúne cuidado facial, diseño de mirada y tratamientos corporales en un solo
+        espacio pensado para clientas que valoran la exclusividad tanto como los resultados.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SERVICIOS ============================ -->
+<section id="servicios" class="relative py-24 sm:py-28 bg-cream-2/60 border-y border-blush/50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center max-w-xl mx-auto mb-14">
+      <p class="font-body text-[11px] tracking-widest2 uppercase text-gold-deep mb-4">Catálogo</p>
+      <h2 class="font-display italic text-3xl sm:text-4xl text-ink">Elige tu ritual</h2>
+      <p class="mt-4 text-ink-soft text-[15px] leading-relaxed">
+        Selecciona los servicios que te interesan — verás el resumen y el total en tiempo real.
+      </p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="flex justify-center">
+      <div id="tabs" class="no-scrollbar flex gap-8 overflow-x-auto border-b border-graysoft/30 px-2 pb-1 mb-12">
+        <button class="tab-btn whitespace-nowrap pb-2 text-[13px] tracking-wide uppercase text-ink-soft" data-cat="facial" data-active="true">Cuidado Facial</button>
+        <button class="tab-btn whitespace-nowrap pb-2 text-[13px] tracking-wide uppercase text-ink-soft" data-cat="lash">Cejas &amp; Pestañas</button>
+        <button class="tab-btn whitespace-nowrap pb-2 text-[13px] tracking-wide uppercase text-ink-soft" data-cat="body">Corporales</button>
+      </div>
+    </div>
+
+    <!-- Cards grid -->
+    <div id="services-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+  </div>
+</section>
+
+<!-- ============================ EXPERIENCIA ============================ -->
+<section id="experiencia" class="relative py-24 sm:py-28">
+  <div class="max-w-5xl mx-auto px-6 text-center">
+    <p class="font-body text-[11px] tracking-widest2 uppercase text-gold-deep mb-4">Lo que dicen nuestras clientas</p>
+    <h2 class="font-display italic text-3xl sm:text-4xl text-ink mb-14">Una experiencia, no solo un servicio</h2>
+
+    <div class="grid sm:grid-cols-3 gap-8 text-left">
+      <blockquote class="reveal rounded-2xl bg-white/60 border border-blush/60 p-7">
+        <p class="text-ink-soft text-[14px] leading-relaxed italic">“Salí sintiendo mi piel distinta desde la primera sesión. El espacio es precioso y la atención, impecable.”</p>
+        <footer class="mt-5 font-display text-lg text-ink">— Valentina R.</footer>
+      </blockquote>
+      <blockquote class="reveal rounded-2xl bg-white/60 border border-blush/60 p-7">
+        <p class="text-ink-soft text-[14px] leading-relaxed italic">“El diseño de cejas quedó perfecto para la forma de mi rostro. Se nota que estudian cada detalle.”</p>
+        <footer class="mt-5 font-display text-lg text-ink">— Daniela M.</footer>
+      </blockquote>
+      <blockquote class="reveal rounded-2xl bg-white/60 border border-blush/60 p-7">
+        <p class="text-ink-soft text-[14px] leading-relaxed italic">“Agendar por WhatsApp fue súper fácil y llegué con el presupuesto ya claro. Volveré cada mes.”</p>
+        <footer class="mt-5 font-display text-lg text-ink">— Isabella C.</footer>
+      </blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACTO / CTA FINAL ============================ -->
+<section id="contacto" class="relative py-24 sm:py-28 bg-ink text-cream overflow-hidden">
+  <div class="watermark-m absolute -top-20 -left-10 text-[14rem] sm:text-[22rem]" style="color:#F1D48A; opacity:.05;">M</div>
+  <div class="relative max-w-3xl mx-auto px-6 text-center">
+    <p class="font-body text-[11px] tracking-widest2 uppercase text-gold-light mb-5">Reserva tu cita</p>
+    <h2 class="font-display italic text-3xl sm:text-4xl mb-6">Tu piel y tu mirada merecen este momento</h2>
+    <p class="text-cream/70 text-[15px] leading-relaxed mb-10 max-w-lg mx-auto">
+      Escríbenos y cuéntanos qué ritual te gustaría vivir. María Camila y su equipo te confirmarán
+      disponibilidad y resolverán cualquier duda antes de tu visita.
+    </p>
+    <button onclick="openWhatsAppDirect()" class="inline-flex items-center gap-3 rounded-full px-9 py-4 font-body text-[12px] tracking-widest2 uppercase text-ink gold-underline shadow-xl shadow-black/30 hover:opacity-90 transition-opacity">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.87.51 3.61 1.4 5.11L2 22l5.13-1.5a9.87 9.87 0 004.9 1.31h.01c5.46 0 9.91-4.45 9.91-9.9C21.96 6.45 17.5 2 12.04 2zm5.8 14.15c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.62-.6-2.86-1.24-4.72-4.13-4.86-4.32-.14-.19-1.16-1.55-1.16-2.95s.72-2.09.98-2.38c.24-.27.53-.34.71-.34.18 0 .35 0 .5.01.16.01.38-.06.59.45.24.58.81 2 .88 2.15.07.15.12.32.02.51-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.75 1.23 1.6 1.99 1.1.98 2.03 1.28 2.32 1.43.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.63-.15.26.1 1.66.79 1.94.93.29.14.47.22.54.34.07.13.07.72-.17 1.4z"/></svg>
+      Agendar por WhatsApp
+    </button>
+
+    <div class="ritual-divider my-12 max-w-xs mx-auto">
+      <span class="w-1.5 h-1.5 rounded-full bg-gold-light"></span>
+    </div>
+
+    <div class="grid sm:grid-cols-3 gap-8 text-[13px] text-cream/70">
+      <div>
+        <p class="uppercase tracking-widest2 text-[10px] text-gold-light mb-2">Ubicación</p>
+        <p>Cali, Valle del Cauca<br>Dirección disponible al agendar</p>
+      </div>
+      <div>
+        <p class="uppercase tracking-widest2 text-[10px] text-gold-light mb-2">Horario</p>
+        <p>Martes a sábado<br>9:00 a.m. – 6:00 p.m.</p>
+      </div>
+      <div>
+        <p class="uppercase tracking-widest2 text-[10px] text-gold-light mb-2">Contacto</p>
+        <p>WhatsApp: +57 300 000 0000<br>@milarivas.boutique</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="bg-cream border-t border-blush/60 py-12">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-8">
+    <a href="#top" class="flex items-center gap-3">
+      <svg viewBox="0 0 100 100" class="w-10 h-10" aria-hidden="true">
+        <defs>
+          <linearGradient id="goldFoilFooter" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7E5A1C"/>
+            <stop offset="25%" stop-color="#F1D48A"/>
+            <stop offset="50%" stop-color="#FFF6DA"/>
+            <stop offset="75%" stop-color="#C9972E"/>
+            <stop offset="100%" stop-color="#7E5A1C"/>
+          </linearGradient>
+        </defs>
+        <circle cx="50" cy="50" r="47" fill="none" stroke="url(#goldFoilFooter)" stroke-width="1.4"/>
+        <circle cx="50" cy="50" r="41" fill="#FBF6F1"/>
+        <text x="50" y="70" text-anchor="middle" font-family="'Pinyon Script', cursive" font-size="60" fill="url(#goldFoilFooter)">M</text>
+      </svg>
+      <span class="flex flex-col leading-none">
+        <span class="font-display text-lg text-ink">Mila Rivas</span>
+        <span class="font-body text-[9px] tracking-widest2 uppercase text-gold-deep mt-1">Skin &amp; Lash Boutique</span>
+      </span>
+    </a>
+
+    <nav class="flex flex-wrap justify-center gap-6 text-[12px] uppercase tracking-wide text-ink-soft">
+      <a href="#servicios" class="hover:text-gold-deep transition-colors">Servicios</a>
+      <a href="#nosotros" class="hover:text-gold-deep transition-colors">Nosotros</a>
+      <a href="#experiencia" class="hover:text-gold-deep transition-colors">Experiencia</a>
+      <a href="#contacto" class="hover:text-gold-deep transition-colors">Contacto</a>
+    </nav>
+
+    <p class="text-[11px] text-graysoft">© <span id="year"></span> Mila Rivas Skin &amp; Lash Boutique. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- ============================ FLOATING CART ============================ -->
+<button id="cart-fab" class="fixed z-50 bottom-6 right-6 sm:bottom-8 sm:right-8 w-16 h-16 rounded-full bg-ink text-cream shadow-2xl shadow-black/30 flex items-center justify-center">
+  <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.836l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 1.884-4.735 2.25-7.253a1.125 1.125 0 00-1.11-1.303H5.106M7.5 14.25L5.106 5.984M7.5 14.25L4.5 9m0 0h16.5"/></svg>
+  <span id="cart-count" class="absolute -top-1 -right-1 min-w-[22px] h-[22px] rounded-full bg-gold text-[11px] text-cream flex items-center justify-center px-1 hidden"></span>
+</button>
+
+<div id="cart-backdrop" class="fixed inset-0 bg-ink/40 backdrop-blur-sm z-40 hidden opacity-0"></div>
+
+<aside id="cart-panel" class="fixed z-50 right-0 bottom-0 sm:top-0 w-full sm:w-[400px] sm:h-full max-h-[85vh] sm:max-h-none bg-cream rounded-t-3xl sm:rounded-none shadow-2xl translate-y-full sm:translate-y-0 sm:translate-x-full flex flex-col">
+  <div class="flex items-center justify-between px-6 py-5 border-b border-blush/60">
+    <div>
+      <p class="font-body text-[10px] tracking-widest2 uppercase text-gold-deep">Tu selección</p>
+      <h3 class="font-display italic text-2xl text-ink">Tu ritual</h3>
+    </div>
+    <button id="cart-close" class="w-9 h-9 rounded-full border border-graysoft/50 flex items-center justify-center hover:bg-blush/40 transition-colors">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+    </button>
+  </div>
+
+  <div id="cart-items" class="flex-1 overflow-y-auto px-6 py-5 space-y-4"></div>
+
+  <div class="border-t border-blush/60 px-6 py-6 bg-cream-2/60">
+    <div class="flex items-center justify-between mb-1">
+      <span class="font-body text-[12px] uppercase tracking-wide text-ink-soft">Duración estimada</span>
+      <span id="cart-duration" class="font-body text-[13px] text-ink">0 min</span>
+    </div>
+    <div class="flex items-center justify-between mb-5">
+      <span class="font-display text-lg text-ink">Total</span>
+      <span id="cart-total" class="font-display text-2xl text-gold-deep">$0</span>
+    </div>
+    <button id="cart-whatsapp" onclick="openWhatsAppFromCart()" class="w-full rounded-full py-3.5 font-body text-[12px] tracking-widest2 uppercase text-cream gold-underline shadow-lg shadow-gold/20 disabled:opacity-40 disabled:pointer-events-none">
+      Agendar cita por WhatsApp
+    </button>
+    <p id="cart-empty-note" class="text-center text-[12px] text-graysoft mt-3">Aún no has seleccionado servicios.</p>
+  </div>
+</aside>
+
+<!-- ============================ SCRIPT ============================ -->
+<script>
+  // ---------------------------------------------------------------
+  // Data: services catalog
+  // ---------------------------------------------------------------
+  const SERVICES = [
+    // Cuidado Facial
+    { id:'f1', cat:'facial', name:'Limpieza Facial Profunda', desc:'Doble exfoliación, extracción y mascarilla calmante para piel visiblemente renovada.', duration:60, price:120000 },
+    { id:'f2', cat:'facial', name:'Hydrafacial Express', desc:'Hidratación intensiva con tecnología de succión suave, ideal antes de un evento.', duration:45, price:150000 },
+    { id:'f3', cat:'facial', name:'Radiofrecuencia Facial', desc:'Tensa y estimula colágeno para un efecto lifting natural y progresivo.', duration:50, price:180000 },
+    { id:'f4', cat:'facial', name:'Dermaplaning', desc:'Exfoliación mecánica que retira vello fino y células muertas, piel luminosa al instante.', duration:40, price:100000 },
+
+    // Cejas y Pestañas
+    { id:'l1', cat:'lash', name:'Lifting de Pestañas', desc:'Curvatura natural desde la raíz sin necesidad de extensiones, con tinte incluido.', duration:45, price:90000 },
+    { id:'l2', cat:'lash', name:'Extensión Clásica', desc:'Una extensión por pestaña natural para un efecto elegante y sutil.', duration:90, price:160000 },
+    { id:'l3', cat:'lash', name:'Extensión Volumen Ruso', desc:'Abanicos de múltiples fibras ultra livianas para una mirada dramática y densa.', duration:120, price:220000 },
+    { id:'l4', cat:'lash', name:'Diseño y Laminado de Cejas', desc:'Perfilado a la medida de tu rostro más laminado para cejas disciplinadas y llenas.', duration:40, price:70000 },
+    { id:'l5', cat:'lash', name:'Microblading', desc:'Técnica semipermanente de pelo a pelo para cejas perfectamente definidas.', duration:90, price:350000 },
+
+    // Corporales
+    { id:'c1', cat:'body', name:'Masaje Relajante', desc:'Liberación de tensión con aceites esenciales y técnica de presión suave.', duration:60, price:130000 },
+    { id:'c2', cat:'body', name:'Drenaje Linfático', desc:'Estimula la circulación y reduce la retención de líquidos con maniobras específicas.', duration:50, price:140000 },
+    { id:'c3', cat:'body', name:'Exfoliación Corporal', desc:'Renueva la piel con sales minerales y finaliza con hidratación profunda.', duration:45, price:110000 },
+    { id:'c4', cat:'body', name:'Tratamiento Reductor', desc:'Protocolo de modelado corporal con activos reductores y masaje moldeador.', duration:60, price:160000 },
+  ];
+
+  const CATEGORY_LABEL = { facial:'Cuidado Facial', lash:'Cejas y Pestañas', body:'Cuidado Corporal' };
+
+  let activeCategory = 'facial';
+  const cart = new Set(); // stores service ids
+
+  const fmtCOP = (n) => '$' + n.toLocaleString('es-CO');
+
+  // ---------------------------------------------------------------
+  // Render services grid for active category
+  // ---------------------------------------------------------------
+  function renderServices() {
+    const grid = document.getElementById('services-grid');
+    grid.innerHTML = '';
+    SERVICES.filter(s => s.cat === activeCategory).forEach((s, i) => {
+      const added = cart.has(s.id);
+      const card = document.createElement('div');
+      card.className = 'svc-card reveal is-visible rounded-2xl bg-white/70 border border-blush/50 p-6 flex flex-col';
+      card.style.transitionDelay = (i * 60) + 'ms';
+      card.innerHTML = `
+        <h3 class="font-display text-xl text-ink mb-2">${s.name}</h3>
+        <p class="text-ink-soft text-[13.5px] leading-relaxed flex-1">${s.desc}</p>
+        <div class="flex items-center justify-between mt-5 pt-4 border-t border-blush/50 text-[13px] text-ink-soft">
+          <span class="flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-gold-deep" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6l4 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            ${s.duration} min
+          </span>
+          <span class="font-display text-lg text-gold-deep">${fmtCOP(s.price)}</span>
+        </div>
+        <button data-id="${s.id}" data-added="${added}" class="add-btn mt-5 w-full rounded-full py-2.5 text-[11px] tracking-widest2 uppercase border border-gold/60 text-gold-deep hover:bg-gold/10">
+          ${added ? 'En tu ritual ✓' : 'Agregar al carrito'}
+        </button>
+      `;
+      card.querySelector('.add-btn').addEventListener('click', () => toggleService(s.id));
+      grid.appendChild(card);
+    });
+  }
+
+  function toggleService(id) {
+    if (cart.has(id)) { cart.delete(id); } else { cart.add(id); }
+    renderServices();
+    renderCart();
+    if (!cart.has(id)) return;
+    // brief pulse on cart fab when adding
+    const fab = document.getElementById('cart-fab');
+    fab.style.transform = 'scale(1.08)';
+    setTimeout(() => fab.style.transform = '', 180);
+  }
+
+  // ---------------------------------------------------------------
+  // Tabs
+  // ---------------------------------------------------------------
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      activeCategory = btn.dataset.cat;
+      document.querySelectorAll('.tab-btn').forEach(b => b.dataset.active = (b === btn));
+      renderServices();
+    });
+  });
+
+  // ---------------------------------------------------------------
+  // Cart panel render + totals
+  // ---------------------------------------------------------------
+  function renderCart() {
+    const itemsWrap = document.getElementById('cart-items');
+    const items = SERVICES.filter(s => cart.has(s.id));
+    itemsWrap.innerHTML = '';
+
+    if (items.length === 0) {
+      itemsWrap.innerHTML = `<p class="text-ink-soft text-[13.5px] text-center mt-10">Explora el catálogo y agrega los servicios de tu próxima cita.</p>`;
+    } else {
+      items.forEach(s => {
+        const row = document.createElement('div');
+        row.className = 'flex items-start justify-between gap-3 pb-4 border-b border-blush/50';
+        row.innerHTML = `
+          <div>
+            <p class="font-display text-base text-ink leading-tight">${s.name}</p>
+            <p class="text-[12px] text-ink-soft mt-1">${s.duration} min · ${fmtCOP(s.price)}</p>
+          </div>
+          <button class="remove-btn text-graysoft hover:text-ink transition-colors mt-1" data-id="${s.id}" aria-label="Quitar">
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        `;
+        row.querySelector('.remove-btn').addEventListener('click', () => toggleService(s.id));
+        itemsWrap.appendChild(row);
+      });
+    }
+
+    const total = items.reduce((sum, s) => sum + s.price, 0);
+    const duration = items.reduce((sum, s) => sum + s.duration, 0);
+    document.getElementById('cart-total').textContent = fmtCOP(total);
+    document.getElementById('cart-duration').textContent = duration + ' min';
+
+    const waBtn = document.getElementById('cart-whatsapp');
+    const emptyNote = document.getElementById('cart-empty-note');
+    waBtn.disabled = items.length === 0;
+    emptyNote.classList.toggle('hidden', items.length > 0);
+
+    const countBadge = document.getElementById('cart-count');
+    countBadge.textContent = items.length;
+    countBadge.classList.toggle('hidden', items.length === 0);
+  }
+
+  // ---------------------------------------------------------------
+  // Cart panel open / close
+  // ---------------------------------------------------------------
+  const cartPanel = document.getElementById('cart-panel');
+  const cartBackdrop = document.getElementById('cart-backdrop');
+
+  function openCart() {
+    cartBackdrop.classList.remove('hidden');
+    requestAnimationFrame(() => cartBackdrop.classList.remove('opacity-0'));
+    cartPanel.classList.remove('translate-y-full', 'sm:translate-x-full');
+  }
+  function closeCart() {
+    cartBackdrop.classList.add('opacity-0');
+    cartPanel.classList.add('translate-y-full', 'sm:translate-x-full');
+    setTimeout(() => cartBackdrop.classList.add('hidden'), 400);
+  }
+
+  document.getElementById('cart-fab').addEventListener('click', openCart);
+  document.getElementById('cart-close').addEventListener('click', closeCart);
+  cartBackdrop.addEventListener('click', closeCart);
+
+  // ---------------------------------------------------------------
+  // WhatsApp booking message
+  // ---------------------------------------------------------------
+  const WHATSAPP_NUMBER = '573000000000'; // TODO: reemplazar con el número real de Mila Rivas (formato: código país + número, sin '+')
+
+  function buildWhatsAppMessage() {
+    const items = SERVICES.filter(s => cart.has(s.id));
+    let msg = `¡Hola María Camila! 🌸 Soy una clienta y quiero agendar una cita en *Mila Rivas | Skin & Lash Boutique*.\n\n`;
+    if (items.length > 0) {
+      msg += `Estos son los servicios que me interesan:\n`;
+      items.forEach(s => { msg += `• ${s.name} — ${fmtCOP(s.price)} (${s.duration} min)\n`; });
+      const total = items.reduce((sum, s) => sum + s.price, 0);
+      const duration = items.reduce((sum, s) => sum + s.duration, 0);
+      msg += `\nDuración estimada: ${duration} min\nTotal estimado: ${fmtCOP(total)}\n\n`;
+    }
+    msg += `¿Me ayudas a confirmar disponibilidad? ¡Gracias! ✨`;
+    return msg;
+  }
+
+  function openWhatsAppFromCart() {
+    if (cart.size === 0) return;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWhatsAppMessage())}`, '_blank');
+  }
+
+  function openWhatsAppDirect() {
+    const msg = cart.size > 0
+      ? buildWhatsAppMessage()
+      : `¡Hola María Camila! 🌸 Quiero agendar una cita en *Mila Rivas | Skin & Lash Boutique*. ¿Me cuentas tu disponibilidad? ¡Gracias! ✨`;
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+  }
+
+  // ---------------------------------------------------------------
+  // Mobile menu
+  // ---------------------------------------------------------------
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  document.querySelectorAll('.menu-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+  // ---------------------------------------------------------------
+  // Nav background on scroll
+  // ---------------------------------------------------------------
+  const nav = document.getElementById('site-nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 30) {
+      nav.classList.add('bg-cream/95', 'backdrop-blur', 'shadow-sm', 'shadow-black/5');
+    } else {
+      nav.classList.remove('bg-cream/95', 'backdrop-blur', 'shadow-sm', 'shadow-black/5');
+    }
+  });
+
+  // ---------------------------------------------------------------
+  // Reveal on scroll (IntersectionObserver)
+  // ---------------------------------------------------------------
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('is-visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal:not(.is-visible)').forEach(el => io.observe(el));
+
+  // ---------------------------------------------------------------
+  // Init
+  // ---------------------------------------------------------------
+  document.getElementById('year').textContent = new Date().getFullYear();
+  renderServices();
+  renderCart();
+</script>
+</body>
+</html>
